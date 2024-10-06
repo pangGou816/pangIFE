@@ -1,0 +1,242 @@
+title = "Demo Script"
+author = "D & C"
+
+
+[scene.classroom]
+name = "The Classroom"
+path = "assets/scene/classroom.jpg"
+
+[scene.home]
+name = "Shark Egg's house"
+path = "assets/scene/home.jpg"
+
+[scene.restaurant]
+name = "The Restaurant"
+path = "assets/scene/restaurant.jpg"
+
+[scene.flunk]
+name = "flunk(bad end 1)"
+path = "assets/end/flunk.png"
+
+[scene.bachelor]
+name = "bachelor(bad end 2)"
+path = "assets/end/bachelor.png"
+
+[scene.marry]
+name = "marry(happy end)"
+path = "assets/end/marry.png"
+
+
+
+[character.hero]
+name = "Shark Egg"
+avatar = "assets/character/Shark_Egg_avatar.png"
+tachie = "assets/character/Shark_Egg_tachie.png"
+
+[character.classmate]
+name = "Formoshark (your classmate)"
+avatar = "assets/character/formoshark_avatar.png"
+tachie = "assets/character/formoshark_tachie.png"
+
+[character.heroine]
+name = "Shark Banana"
+avatar = "assets/character/Shark_Banana_avatar.png"
+tachie = "assets/character/Shark_Banana_tachie.png"
+
+[character.angry]
+name = "Angry Banana"
+avatar = "assets/character/Angry_Banana_avatar.png"
+tachie = "assets/character/Angry_Banana_tachie.png"
+
+
+
+[item.ring]
+name = "Ring"
+icon = "assets/item/ring.png"
+
+[item.fish]
+name = "Big Fish"
+icon = "assets/item/fish.png"
+
+
+
+[music.elevate]
+name = "elevate"
+path = "assets/music/elevate.mp3"
+
+[music.skygaze]
+name = "skygaze"
+path = "assets/music/skygaze.mp3"
+
+[music.explose]
+name = "explose"
+path = "assets/music/explose.mp3"
+
+[music.lone]
+name = "lone"
+path = "assets/music/lone.mp3"
+
+[music.wedding]
+name = "wedding"
+path = "assets/music/wedding.mp3"
+
+
+
+[event.one]
+scene = "classroom"
+dialogue = "time0"
+music = "skygaze"
+
+[dialogue.time0]
+character = "hero"
+text = "我叫鯊蛋，是一隻就讀國立台灣鯊飯大學的鯊魚，這學期正準備要修紀老師的程設二"
+next = "time1"
+
+[dialogue.time1]
+character = "classmate"
+text = "嗨！同學！交個朋友吧，我叫福爾摩鯊，程設二一起加油！"
+next = "time2"
+
+[dialogue.time2]
+character = "hero"
+text = "好哇！很高興認識你！"
+next = "time3"
+
+[dialogue.time3]
+character = "classmate"
+text = "問你哦，你打算每個禮拜花多少時間在這堂課上啊？"
+[[dialogue.time3.options]]
+text = "最多兩天吧，畢竟我還有25學分"
+event = "two"
+[[dialogue.time3.options]]
+score = "+1"
+text = "除了寫其他作業的時間，我打算全部all in程設二！"
+event = "two"
+
+[event.two]
+scene = "home"
+dialogue = "TAhour0"
+
+[dialogue.TAhour0]
+character = "classmate"
+text = "同學同學，助教有公告TA Hour的時間ㄟ！要不要一起去"
+[[dialogue.TAhour0.options]]
+text = "我就不了，懶得去"
+event = "three"
+[[dialogue.TAhour0.options]]
+score = "+1"
+text = "必須得去！"
+event = "three"
+
+[event.three]
+scene = "classroom"
+dialogue = "final0"
+
+[dialogue.final0]
+character = "classmate"
+text = "我們專題要不要一組！"
+next = "final1"
+
+[dialogue.final1]
+character = "hero"
+text = "好哇好哇！"
+dialogue = "final2"
+
+[dialogue.final2]
+character = "classmate"
+text = "離期末考還有一個月，你有要先弄專題嗎？"
+[[dialogue.final2.options]]
+text = "趁還能玩的時候盡情耍廢，期末考考完再來拚專題吧~"
+event = "judge"
+[[dialogue.final2.options]]
+score = "+1"
+text = "好哇！先弄一些以免弄不完"
+event = "judge"
+
+[event.judge]
+total = "3"
+scene = "flunk"
+music = "explose"
+event = "four"
+
+[event.four]
+scene = "restaurant"
+dialogue = "confession0"
+music = "elevate"
+
+[dialogue.confession0]
+text = "好不容易通過程設二的鯊蛋，覺得全身充滿勇氣，想要在隔天與曖昧對象出門吃飯的時候跟她告白"
+next = "confession1"
+
+[dialogue.confession1]
+character = "heroine"
+text = "這間餐廳真好吃~"
+next = "confession2"
+
+[dialogue.confession2]
+character = "hero"
+text = "那個...其實...我喜歡你很久了，可以跟你交往嗎？"
+next = "confession3"
+
+[dialogue.confession3]
+character = "heroine"
+text = "在那之前我想先問你一個問題"
+next = "confession4"
+
+[dialogue.confession4]
+character = "hero"
+text = "請說"
+next = "confession5"
+
+[dialogue.confession5]
+character = "heroine"
+text = "如果有一天，我變成你程式裡的一隻蟲，你還會愛我嗎？"
+[[dialogue.confession5.options]]
+text = "沒可能，程式裡的bug都必須被處理掉"
+next = "bachelor0"
+[[dialogue.confession5.options]]
+text = "當然，我會讓你留在我的程式中一輩子"
+next = "gift0"
+
+[dialogue.bachelor0]
+character = "angry"
+text = "看來你根本不喜歡我，我拒絕跟你交往"
+event = "end2"
+
+[event.end2]
+scene = "bachelor"
+music = "lone"
+
+[dialogue.gift0]
+character = "heroine"
+text = "我願意跟你交往"
+next = "gift1"
+
+[dialogue.gift1]
+character = "hero"
+text = "對了，我有一個禮物要送給你"
+[[dialogue.gift1.options]]
+item = "ring"
+next = "bachelor1"
+[[dialogue.gift1.options]]
+item = "fish"
+next = "marry"
+
+[dialogue.bachelor1]
+character = "angry"
+text = "你沒有心，我是鯊魚根本沒手怎麼戴戒指，分手！"
+event = "end3"
+
+[event.end3]
+scene = "bachelor"
+music = "lone"
+
+[dialogue.marry]
+character = "heroine"
+text = "你真好，怎麼知道我最愛吃魚！"
+event = "end4"
+
+[event.end4]
+scene = "marry"
+music = "wedding"
+
